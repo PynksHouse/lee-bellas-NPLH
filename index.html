@@ -1,18 +1,87 @@
-<!DOCTYPE html> <html> <head> <title>Lee-Bella's No Place Like Home CDC</title> <style> body{ font-family: Arial, Helvetica, sans-serif; margin:0; background:#f6f3ea; text-align:center; } header{ background:white; padding:50px; box-shadow:0 3px 10px rgba(0,0,0,0.1); } .logo{ width:300px; margin-bottom:20px; } h1{ color:#5f7f8c; margin:10px; } .tagline{ color:#c57b8a; font-size:18px; margin-bottom:30px; } nav{ margin-top:20px; } nav button{ background:#7fa685; color:white; border:none; padding:14px 24px; margin:8px; border-radius:6px; font-size:16px; cursor:pointer; } nav button:hover{ background:#5d8a6c; } .section{ padding:60px 20px; max-width:900px; margin:auto; } .section h2{ color:#5f7f8c; } .cta{ background:#7fa685; padding:50px; color:white; } .cta button{ background:white; color:#7fa685; border:none; padding:16px 28px; font-size:18px; border-radius:8px; cursor:pointer; } footer{ background:#5f7f8c; color:white; padding:30px; } </style> </head> <body> <header> <img src="logo.png" class="logo"> <h1>Lee-Bella's No Place Like Home</h1> <div class="tagline"> Where Little Hearts Feel at Home — Day & Night </div> <nav>
-<button onclick="location.href='about.html'">About</button>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lee-Bella's No Place Like Home CDC</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f6f3ea;color:#4d6470;text-align:center}
+    header{background:#fff;padding:30px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    .logo{width:280px;max-width:90%;margin-bottom:10px}
+    h1{margin:10px 0 5px}
+    .tagline{color:#c57b8a;font-size:18px;margin-bottom:20px}
+    nav{margin-top:20px}
+    nav a{
+      display:inline-block;margin:8px;padding:12px 20px;text-decoration:none;
+      background:#89a98f;color:#fff;border-radius:8px;font-weight:bold
+    }
+    nav a:hover{background:#6f9076}
+    .hero{padding:60px 20px;max-width:900px;margin:auto}
+    .hero h2{color:#89a98f}
+    .cta{
+      display:inline-block;margin-top:20px;padding:14px 24px;border-radius:8px;
+      background:#5f7f8c;color:#fff;text-decoration:none;font-weight:bold
+    }
+    .cta:hover{background:#4a6671}
+    .section{padding:40px 20px;max-width:900px;margin:auto}
+    .cards{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+    .card{
+      background:#fff;padding:25px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08);
+      width:240px
+    }
+    footer{background:#5f7f8c;color:#fff;padding:25px;margin-top:40px}
+  </style>
+</head>
+<body>
 
-<button onclick="location.href='programs.html'">Programs</button>
+<header>
+  <img src="logo.png" class="logo" alt="Lee-Bella's Logo">
+  <h1>Lee-Bella's No Place Like Home</h1>
+  <div class="tagline">Where Little Hearts Feel at Home — Day & Night</div>
 
-<button onclick="location.href='waitlist.html'">Join Waitlist</button>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="waitlist.html">Join Waitlist</a>
+    <a href="enrollment.html">Enrollment</a>
+    <a href="contact.html">Contact</a>
+    <a href="grants.html">Grant Ready</a>
+  </nav>
+</header>
 
-<button onclick="window.open('https://www.gofundme.com/f/launch-leebellas-promise-haven-hope-for-the-homeless')">
-Support Our Launch
-</button>
-Join Waitlist
+<div class="hero">
+  <h2>24-Hour Childcare for Working Families</h2>
+  <p>
+    Lee-Bella's No Place Like Home Child Development Center is designed to support
+    working families and essential workers in Gwinnett County with safe, nurturing,
+    dependable childcare day and night.
+  </p>
+  <a class="cta" href="waitlist.html">Join the Founding Families Waitlist</a>
+</div>
 
-</button> </div> <footer>
+<div class="section">
+  <div class="cards">
+    <div class="card">
+      <h3>Safe & Loving Care</h3>
+      <p>A home-like environment where children feel secure, supported, and cared for.</p>
+    </div>
+    <div class="card">
+      <h3>24-Hour Support</h3>
+      <p>Built for parents with overnight, extended, and nontraditional work schedules.</p>
+    </div>
+    <div class="card">
+      <h3>Community Impact</h3>
+      <p>Supporting essential workers, families, and children through accessible care.</p>
+    </div>
+  </div>
+</div>
 
-Lee-Bella's No Place Like Home CDC<br>
-Gwinnett County, Georgia
+<div class="section">
+  <a class="cta" href="https://www.gofundme.com/f/launch-leebellas-promise-haven-hope-for-the-homeless" target="_blank">Support Our Launch</a>
+</div>
 
-</footer> </body> </html> :::
+<footer>
+  Lee-Bella's No Place Like Home CDC<br>
+  Gwinnett County, Georgia
+</footer>
+
+</body>
+</html>
