@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services — Lee-Bella's No Place Like Home CDC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --sage: #7A9E7E; --dusty-blue: #7BA7BC; --sky: #b0d4e3; --blush: #E8A0B4; --blush-light: #f5c8d8; --sun: #F5C842; --cream: #FDF8F3; --warm-white: #FFFDF9; --dark: #3a3a3a; --mid: #6a6a6a; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--dark); }
+    .coming-soon-banner { background: linear-gradient(90deg, var(--blush), var(--dusty-blue), var(--sage)); color: white; text-align: center; padding: 10px 20px; font-size: 0.95rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    nav { background: var(--warm-white); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 12px; }
+    .nav-logo img { height: 70px; }
+    .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--mid); font-weight: 600; font-size: 0.88rem; padding: 8px 14px; border-radius: 25px; transition: all 0.25s; letter-spacing: 0.5px; text-transform: uppercase; }
+    .nav-links a:hover, .nav-links a.active { background: var(--sage); color: white; }
+    .page-hero { background: linear-gradient(135deg, #e8f4f8, #fdf0f5); padding: 60px 40px; text-align: center; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--dusty-blue); margin-bottom: 10px; }
+    .page-hero p { color: var(--mid); font-size: 1.05rem; }
+    section { padding: 60px 40px; }
+    .inner { max-width: 960px; margin: 0 auto; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dusty-blue); margin-bottom: 8px; }
+    .sub { color: var(--blush); font-style: italic; margin-bottom: 30px; }
+    p { color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
+    .service-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .service-card { background: white; border-radius: 20px; padding: 32px 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); border-top: 5px solid var(--sage); }
+    .service-card:nth-child(2) { border-top-color: var(--blush); }
+    .service-card:nth-child(3) { border-top-color: var(--dusty-blue); }
+    .service-card:nth-child(4) { border-top-color: var(--sun); }
+    .service-card .icon { font-size: 2.5rem; margin-bottom: 14px; }
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .service-card .price { font-size: 1.05rem; font-weight: 700; color: var(--sage); margin-bottom: 14px; }
+    .service-card:nth-child(2) .price { color: var(--blush); }
+    .service-card:nth-child(3) .price { color: var(--dusty-blue); }
+    .service-card:nth-child(4) .price { color: #c9a800; }
+    .service-card ul { padding-left: 18px; color: var(--mid); font-size: 0.9rem; line-height: 1.9; }
+    .who-we-serve { background: white; }
+    .serve-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 10px; }
+    .serve-item { background: var(--cream); border-radius: 14px; padding: 20px; border-left: 4px solid var(--sage); }
+    .serve-item:nth-child(even) { border-left-color: var(--blush); }
+    .serve-item .icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .serve-item p { font-size: 0.88rem; font-weight: 600; color: var(--dark); margin: 0; line-height: 1.4; }
+    .advantage-list { list-style: none; padding: 0; }
+    .advantage-list li { padding: 14px 0; border-bottom: 1px solid #eee; display: flex; gap: 14px; align-items: flex-start; color: var(--mid); font-size: 0.95rem; line-height: 1.6; }
+    .advantage-list li:last-child { border-bottom: none; }
+    .advantage-list li .check { color: var(--sage); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+    .cta-box { background: linear-gradient(135deg, var(--sage), var(--dusty-blue)); color: white; border-radius: 20px; padding: 44px; text-align: center; margin: 40px 0 0; }
+    .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 12px; }
+    .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+    .btn { display: inline-block; padding: 13px 28px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; margin: 6px; }
+    .btn-white { background: white; color: var(--sage); }
+    .btn-white:hover { background: var(--cream); }
+    .btn-outline-white { background: transparent; color: white; border: 2px solid white; }
+    .btn-outline-white:hover { background: white; color: var(--sage); }
+    footer { background: var(--dark); color: #ccc; padding: 40px; text-align: center; }
+    footer img { height: 60px; margin-bottom: 16px; opacity: 0.85; }
+    footer a { color: var(--sky); text-decoration: none; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 16px 0; }
+    .social-btn { background: rgba(255,255,255,0.1); color: white; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+    .social-links { display: flex; gap: 14px; justify-content: center; margin: 16px 0; }
+    @media (max-width: 700px) { nav { padding: 12px 20px; } section { padding: 40px 20px; } .page-hero h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+
+  <div class="coming-soon-banner">🌟 Coming Soon — Opening in Gwinnett County, GA 🌟</div>
+
+  <nav>
+    <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Lee-Bella's Logo"/></a></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="interest.html">Interest Form</a>
+      <a href="support.html">Support Us</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <h1>Our Services</h1>
+    <p>Flexible, 24-hour childcare designed around your schedule — not the other way around</p>
+  </div>
+
+  <section>
+    <div class="inner">
+      <h2>Care Plans &amp; Pricing</h2>
+      <p class="sub">Coming Soon — rates shown are planned launch pricing</p>
+      <div class="service-cards">
+        <div class="service-card">
+          <div class="icon">☀️</div>
+          <h3>Standard Care Package</h3>
+          <div class="price">$250 – $350 / week</div>
+          <ul>
+            <li>Daytime or overnight care, up to 10 hrs/day</li>
+            <li>Healthy meals and snacks included</li>
+            <li>Age-appropriate learning activities</li>
+            <li>Structured curriculum each day</li>
+            <li>Daily updates via childcare app</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="icon">🌙</div>
+          <h3>Extended 24-Hour Care Plan</h3>
+          <div class="price">$350 – $500 / week</div>
+          <ul>
+            <li>Full around-the-clock availability</li>
+            <li>Drop off or pick up at any hour</li>
+            <li>Priority enrollment slot reserved</li>
+            <li>Overnight supervision by certified staff</li>
+            <li>Ideal for shift workers &amp; unpredictable schedules</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="icon">🚐</div>
+          <h3>Transportation Add-On</h3>
+          <div class="price">$75 – $150 / week additional</div>
+          <ul>
+            <li>Door-to-door pickup &amp; drop-off</li>
+            <li>GPS-tracked, commercially insured vehicle</li>
+            <li>All child safety &amp; booster seats provided</li>
+            <li>Real-time text notifications to parents</li>
+            <li>Daily round-trip or one-way options</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="icon">⏰</div>
+          <h3>Drop-In / Hourly Care</h3>
+          <div class="price">$20 – $30 / hour</div>
+          <ul>
+            <li>No weekly commitment required</li>
+            <li>Billed by the hour</li>
+            <li>Available based on space &amp; enrollment</li>
+            <li>Ideal for occasional needs or emergencies</li>
+            <li>Great intro option for new families</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-we-serve">
+    <div class="inner">
+      <h2>Who We Serve</h2>
+      <p class="sub">Built for the families traditional daycare leaves behind</p>
+      <div class="serve-grid">
+        <div class="serve-item"><div class="icon">🏥</div><p>Night-shift nurses &amp; hospital workers</p></div>
+        <div class="serve-item"><div class="icon">🚒</div><p>Police, Fire &amp; EMS on rotating shifts</p></div>
+        <div class="serve-item"><div class="icon">🏨</div><p>Hotel, restaurant &amp; hospitality workers</p></div>
+        <div class="serve-item"><div class="icon">🚛</div><p>Truck drivers &amp; warehouse/logistics workers</p></div>
+        <div class="serve-item"><div class="icon">👩‍👧</div><p>Single parents working non-traditional schedules</p></div>
+        <div class="serve-item"><div class="icon">🌅</div><p>Parents needing 4–6 AM drop-off or late-night pickup</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>Our Competitive Advantage</h2>
+      <p class="sub">Lee-Bella's occupies its own category — we don't compete with traditional daycare</p>
+      <ul class="advantage-list">
+        <li><span class="check">✅</span> True 24/7/365 operation — no holiday closures, no weather-day shutdowns</li>
+        <li><span class="check">✅</span> Door-to-door transportation within a defined service radius</li>
+        <li><span class="check">✅</span> Flexible enrollment: weekly plans, overnight care, and drop-in hourly options</li>
+        <li><span class="check">✅</span> Small initial capacity ensuring personal, attentive, family-style care (15–25 children)</li>
+        <li><span class="check">✅</span> CCDF subsidy voucher acceptance planned — expanding access to all income levels</li>
+        <li><span class="check">✅</span> Background-checked, CPR-certified, early-childhood-educated staff</li>
+        <li><span class="check">✅</span> Daily updates via Brightwheel or HiMama childcare management app</li>
+        <li><span class="check">✅</span> A brand built on warmth, safety, and the feeling of home</li>
+      </ul>
+
+      <div class="cta-box">
+        <h3>Interested in Enrolling?</h3>
+        <p>We're not open yet — but you can express interest now and be first in line when we open our doors!</p>
+        <a href="interest.html" class="btn btn-white">📋 Fill Out the Interest Form</a>
+        <a href="contact.html" class="btn btn-outline-white">💬 Ask a Question</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="logo.png" alt="Logo"/>
+    <p><strong style="color:white;">Lee-Bella's No Place Like Home CDC</strong></p>
+    <p>Gwinnett County, Georgia &nbsp;|&nbsp; <em>Coming Soon</em></p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/18onscfdsQ/?mibextid=wwXIfr" target="_blank" class="social-btn">📘 Facebook</a>
+      <a href="https://www.instagram.com/noplacelikehomecdc?igsh=MW8wcjRkdHJhcHQ0aQ%3D%3D&utm_source=qr" target="_blank" class="social-btn">📸 Instagram</a>
+      <a href="https://gofund.me/87e43e796" target="_blank" class="social-btn">❤️ GoFundMe</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a> <a href="interest.html">Interest Form</a> <a href="support.html">Support Us</a>
+    </div>
+    <p style="margin-top:16px;">📞 <a href="tel:4702875090">(470) 287-5090</a> &nbsp;|&nbsp; ✉️ <a href="mailto:LeeBellas-NPLH@outlook.com">LeeBellas-NPLH@outlook.com</a></p>
+    <p style="margin-top:12px; font-size:0.78rem; opacity:0.5;">© 2026 Lee-Bella's No Place Like Home CDC. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
