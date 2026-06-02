@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support Us — Lee-Bella's No Place Like Home CDC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --sage: #7A9E7E; --dusty-blue: #7BA7BC; --sky: #b0d4e3; --blush: #E8A0B4; --sun: #F5C842; --cream: #FDF8F3; --warm-white: #FFFDF9; --dark: #3a3a3a; --mid: #6a6a6a; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--dark); }
+    .coming-soon-banner { background: linear-gradient(90deg, var(--blush), var(--dusty-blue), var(--sage)); color: white; text-align: center; padding: 10px 20px; font-size: 0.95rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    nav { background: var(--warm-white); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 12px; }
+    .nav-logo img { height: 70px; }
+    .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--mid); font-weight: 600; font-size: 0.88rem; padding: 8px 14px; border-radius: 25px; transition: all 0.25s; letter-spacing: 0.5px; text-transform: uppercase; }
+    .nav-links a:hover, .nav-links a.active { background: var(--sage); color: white; }
+    .page-hero { background: linear-gradient(135deg, #fdf0f5, #e8f4f8); padding: 70px 40px; text-align: center; position: relative; overflow: hidden; }
+    .page-hero::before { content: '❤️ 🌟 ❤️ 🌟 ❤️ 🌟 ❤️ 🌟'; position: absolute; top: 12px; left: 0; right: 0; font-size: 1.2rem; opacity: 0.12; letter-spacing: 16px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--blush); margin-bottom: 10px; }
+    .page-hero p { color: var(--mid); font-size: 1.05rem; max-width: 580px; margin: 0 auto; line-height: 1.7; }
+    section { padding: 60px 40px; }
+    .inner { max-width: 900px; margin: 0 auto; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dusty-blue); margin-bottom: 8px; }
+    .sub { color: var(--blush); font-style: italic; margin-bottom: 28px; }
+    p { color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
+    .gofundme-cta { background: white; border-radius: 24px; padding: 44px; text-align: center; box-shadow: 0 6px 30px rgba(0,0,0,0.08); border: 3px solid var(--blush-light, #f5c8d8); max-width: 600px; margin: 0 auto; }
+    .gofundme-cta .heart { font-size: 4rem; margin-bottom: 16px; }
+    .gofundme-cta h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--dark); margin-bottom: 12px; }
+    .gofundme-cta p { color: var(--mid); margin-bottom: 24px; }
+    .donate-btn { display: inline-block; background: linear-gradient(135deg, var(--blush), #d06a88); color: white; padding: 16px 40px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-decoration: none; box-shadow: 0 4px 18px rgba(232,160,180,0.5); transition: all 0.25s; }
+    .donate-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(232,160,180,0.5); }
+    .funding-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 10px; }
+    .funding-item { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); text-align: center; }
+    .funding-item .icon { font-size: 2rem; margin-bottom: 10px; }
+    .funding-item h4 { color: var(--dark); font-size: 1rem; margin-bottom: 4px; }
+    .funding-item .amount { color: var(--sage); font-weight: 700; font-size: 1.1rem; margin-bottom: 8px; }
+    .funding-item p { font-size: 0.85rem; margin: 0; }
+    .ways-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .way-card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); }
+    .way-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .way-card h4 { color: var(--dark); margin-bottom: 8px; }
+    .way-card p { font-size: 0.88rem; margin: 0; }
+    .way-card a { color: var(--sage); font-weight: 700; }
+    .btn { display: inline-block; padding: 13px 28px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; }
+    .btn-sage { background: var(--sage); color: white; }
+    .btn-sage:hover { background: #5e8562; }
+    .share-section { background: linear-gradient(135deg, var(--sage), var(--dusty-blue)); border-radius: 20px; padding: 40px; text-align: center; color: white; }
+    .share-section h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 10px; }
+    .share-section p { color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .share-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .share-btn { background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 10px 22px; border-radius: 25px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    .share-btn:hover { background: rgba(255,255,255,0.35); }
+    footer { background: var(--dark); color: #ccc; padding: 40px; text-align: center; }
+    footer img { height: 60px; margin-bottom: 16px; opacity: 0.85; }
+    footer a { color: var(--sky); text-decoration: none; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 16px 0; }
+    .social-btn { background: rgba(255,255,255,0.1); color: white; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+    .social-links { display: flex; gap: 14px; justify-content: center; margin: 16px 0; }
+    @media (max-width: 700px) { nav { padding: 12px 20px; } section { padding: 40px 20px; } .page-hero h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+
+  <div class="coming-soon-banner">🌟 Coming Soon — Opening in Gwinnett County, GA 🌟</div>
+
+  <nav>
+    <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Lee-Bella's Logo"/></a></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="interest.html">Interest Form</a>
+      <a href="support.html" class="active">Support Us</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <h1>Support Our Vision ❤️</h1>
+    <p>Help us open Gwinnett County's first 24-hour Child Development Center. Every dollar brings us closer to serving the working families who need us most.</p>
+  </div>
+
+  <section>
+    <div class="inner" style="text-align:center;">
+      <h2>Donate on GoFundMe</h2>
+      <p class="sub" style="display:block; text-align:center;">Your contribution makes a direct, real difference</p>
+      <div class="gofundme-cta">
+        <div class="heart">❤️</div>
+        <h3>Lee-Bella's No Place Like Home CDC</h3>
+        <p>We're raising funds to cover licensing, leasing, equipment, staff training, and startup costs. Every single contribution — no matter the size — gets us one step closer to opening our doors for Gwinnett County's working families.</p>
+        <a href="https://gofund.me/87e43e796" target="_blank" class="donate-btn">❤️ Donate on GoFundMe</a>
+        <p style="margin-top:20px; font-size:0.85rem; color: #aaa;">Clicking this button will take you to our official GoFundMe page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: white;">
+    <div class="inner">
+      <h2>Where Your Donation Goes</h2>
+      <p class="sub">Every dollar is invested in making Lee-Bella's a reality</p>
+      <div class="funding-grid">
+        <div class="funding-item"><div class="icon">🏢</div><h4>Lease &amp; Deposit</h4><div class="amount">$3K–$8K</div><p>First month, last month, and security deposit on our commercial space</p></div>
+        <div class="funding-item"><div class="icon">🛏️</div><h4>Furniture &amp; Equipment</h4><div class="amount">$8K–$20K</div><p>Cribs, mats, tables, chairs, and childcare essentials</p></div>
+        <div class="funding-item"><div class="icon">📚</div><h4>Educational Supplies</h4><div class="amount">$2K–$5K</div><p>Books, learning materials, and curriculum resources</p></div>
+        <div class="funding-item"><div class="icon">🚐</div><h4>Transportation Vehicle</h4><div class="amount">$8K–$25K</div><p>Used 12-passenger van with GPS and child safety equipment</p></div>
+        <div class="funding-item"><div class="icon">📋</div><h4>Licensing &amp; Legal</h4><div class="amount">$1.2K–$3.2K</div><p>LLC filing, permits, childcare licensing, and legal fees</p></div>
+        <div class="funding-item"><div class="icon">💼</div><h4>Operating Reserve</h4><div class="amount">$15K–$40K</div><p>3-month payroll and rent buffer to ensure stability at launch</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>Other Ways to Support</h2>
+      <p class="sub">Beyond donations — there are many ways to help</p>
+      <div class="ways-grid">
+        <div class="way-card"><div class="icon">📣</div><h4>Spread the Word</h4><p>Share our GoFundMe, follow us on social media, and tell working parents in Gwinnett County about us.</p></div>
+        <div class="way-card"><div class="icon">📘</div><h4>Follow on Facebook</h4><p>Like and share our page to help us reach more families. <a href="https://www.facebook.com/share/18onscfdsQ/?mibextid=wwXIfr" target="_blank">Follow us →</a></p></div>
+        <div class="way-card"><div class="icon">📸</div><h4>Follow on Instagram</h4><p>Stay updated on our journey. <a href="https://www.instagram.com/noplacelikehomecdc?igsh=MW8wcjRkdHJhcHQ0aQ%3D%3D&utm_source=qr" target="_blank">@noplacelikehomecdc →</a></p></div>
+        <div class="way-card"><div class="icon">🤝</div><h4>Business Partnership</h4><p>Local businesses, hospitals, and employers — let's talk about partnership opportunities.</p></div>
+        <div class="way-card"><div class="icon">📋</div><h4>Express Interest</h4><p>Future families: join the waitlist so we can show the community demand is real. <a href="interest.html">Sign up →</a></p></div>
+        <div class="way-card"><div class="icon">✉️</div><h4>Get in Touch</h4><p>Ideas, connections, or resources? Reach out directly. <a href="contact.html">Contact us →</a></p></div>
+      </div>
+
+      <div class="share-section" style="margin-top:40px;">
+        <h3>Share Our GoFundMe</h3>
+        <p>Not in a position to donate? Sharing is just as powerful. Help us reach the people who can!</p>
+        <div class="share-btns">
+          <a href="https://www.facebook.com/share/18onscfdsQ/?mibextid=wwXIfr" target="_blank" class="share-btn">📘 Share on Facebook</a>
+          <a href="https://www.instagram.com/noplacelikehomecdc" target="_blank" class="share-btn">📸 Share on Instagram</a>
+          <a href="https://gofund.me/87e43e796" target="_blank" class="share-btn">❤️ GoFundMe Page</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="logo.png" alt="Logo"/>
+    <p><strong style="color:white;">Lee-Bella's No Place Like Home CDC</strong></p>
+    <p>Gwinnett County, Georgia &nbsp;|&nbsp; <em>Coming Soon</em></p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/18onscfdsQ/?mibextid=wwXIfr" target="_blank" class="social-btn">📘 Facebook</a>
+      <a href="https://www.instagram.com/noplacelikehomecdc?igsh=MW8wcjRkdHJhcHQ0aQ%3D%3D&utm_source=qr" target="_blank" class="social-btn">📸 Instagram</a>
+      <a href="https://gofund.me/87e43e796" target="_blank" class="social-btn">❤️ GoFundMe</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a> <a href="interest.html">Interest Form</a> <a href="support.html">Support Us</a>
+    </div>
+    <p style="margin-top:16px;">📞 <a href="tel:4702875090">(470) 287-5090</a> &nbsp;|&nbsp; ✉️ <a href="mailto:LeeBellas-NPLH@outlook.com">LeeBellas-NPLH@outlook.com</a></p>
+    <p style="margin-top:12px; font-size:0.78rem; opacity:0.5;">© 2026 Lee-Bella's No Place Like Home CDC. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
