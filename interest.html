@@ -126,6 +126,7 @@
             <div class="checkbox-item"><input type="checkbox" id="c2"/><label for="c2">Extended 24-Hour Care Plan ($350–$500/week)</label></div>
             <div class="checkbox-item"><input type="checkbox" id="c3"/><label for="c3">Transportation Add-On ($75–$150/week)</label></div>
             <div class="checkbox-item"><input type="checkbox" id="c4"/><label for="c4">Drop-In / Hourly Care ($20–$30/hr)</label></div>
+            <div class="checkbox-item"><input type="checkbox" id="c5"/><label for="c5">After-School Care ($125–$200/week)</label></div>
           </div>
         </div>
 
@@ -198,6 +199,7 @@
       if (document.getElementById('c2').checked) careTypes.push('Extended 24-Hour Care Plan');
       if (document.getElementById('c3').checked) careTypes.push('Transportation Add-On');
       if (document.getElementById('c4').checked) careTypes.push('Drop-In / Hourly Care');
+      if (document.getElementById('c5').checked) careTypes.push('After-School Care');
 
       const formData = {
         name,
