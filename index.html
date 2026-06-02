@@ -1,87 +1,339 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lee-Bella's No Place Like Home CDC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f6f3ea;color:#4d6470;text-align:center}
-    header{background:#fff;padding:30px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    .logo{width:280px;max-width:90%;margin-bottom:10px}
-    h1{margin:10px 0 5px}
-    .tagline{color:#c57b8a;font-size:18px;margin-bottom:20px}
-    nav{margin-top:20px}
-    nav a{
-      display:inline-block;margin:8px;padding:12px 20px;text-decoration:none;
-      background:#89a98f;color:#fff;border-radius:8px;font-weight:bold
+    :root {
+      --sage: #7A9E7E;
+      --sage-light: #a8c5ac;
+      --dusty-blue: #7BA7BC;
+      --sky: #b0d4e3;
+      --blush: #E8A0B4;
+      --blush-light: #f5c8d8;
+      --sun: #F5C842;
+      --cream: #FDF8F3;
+      --warm-white: #FFFDF9;
+      --dark: #3a3a3a;
+      --mid: #6a6a6a;
     }
-    nav a:hover{background:#6f9076}
-    .hero{padding:60px 20px;max-width:900px;margin:auto}
-    .hero h2{color:#89a98f}
-    .cta{
-      display:inline-block;margin-top:20px;padding:14px 24px;border-radius:8px;
-      background:#5f7f8c;color:#fff;text-decoration:none;font-weight:bold
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--dark); }
+
+    /* COMING SOON BANNER */
+    .coming-soon-banner {
+      background: linear-gradient(90deg, var(--blush), var(--dusty-blue), var(--sage));
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: shimmer 4s infinite;
     }
-    .cta:hover{background:#4a6671}
-    .section{padding:40px 20px;max-width:900px;margin:auto}
-    .cards{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
-    .card{
-      background:#fff;padding:25px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08);
-      width:240px
+    @keyframes shimmer {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
     }
-    footer{background:#5f7f8c;color:#fff;padding:25px;margin-top:40px}
+
+    /* NAV */
+    nav {
+      background: var(--warm-white);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-logo img { height: 70px; }
+    .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--mid);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 8px 14px;
+      border-radius: 25px;
+      transition: all 0.25s;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: var(--sage);
+      color: white;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, #e8f4f8 0%, #fdf0f5 50%, #eef7ef 100%);
+      padding: 80px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '🌙 ✨ ☀️ ⭐ 🌙 ✨ ☀️ ⭐';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      font-size: 1.4rem;
+      opacity: 0.15;
+      letter-spacing: 20px;
+    }
+    .hero-logo { width: 220px; margin-bottom: 20px; animation: float 4s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--dusty-blue);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .hero .tagline {
+      font-style: italic;
+      color: var(--blush);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+    }
+    .coming-soon-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--sun), var(--blush));
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 10px 30px;
+      border-radius: 50px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(245,200,66,0.4);
+      margin-bottom: 30px;
+    }
+    .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      letter-spacing: 0.5px;
+    }
+    .btn-primary { background: var(--sage); color: white; box-shadow: 0 4px 14px rgba(122,158,126,0.4); }
+    .btn-primary:hover { background: #5e8562; transform: translateY(-2px); }
+    .btn-secondary { background: var(--blush); color: white; box-shadow: 0 4px 14px rgba(232,160,180,0.4); }
+    .btn-secondary:hover { background: #d0748e; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--dusty-blue); border: 2px solid var(--dusty-blue); }
+    .btn-outline:hover { background: var(--dusty-blue); color: white; transform: translateY(-2px); }
+
+    /* HIGHLIGHTS */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 50px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .highlight-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s;
+      border-top: 4px solid var(--sage);
+    }
+    .highlight-card:nth-child(2) { border-top-color: var(--blush); }
+    .highlight-card:nth-child(3) { border-top-color: var(--dusty-blue); }
+    .highlight-card:nth-child(4) { border-top-color: var(--sun); }
+    .highlight-card:hover { transform: translateY(-5px); }
+    .highlight-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .highlight-card h3 { color: var(--dark); font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .highlight-card p { color: var(--mid); font-size: 0.88rem; line-height: 1.5; }
+
+    /* SECTION GENERIC */
+    section { padding: 60px 40px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--dusty-blue);
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      color: var(--blush);
+      font-style: italic;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    /* ABOUT PREVIEW */
+    .about-preview {
+      background: white;
+    }
+    .about-preview-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .about-preview-inner img { width: 100%; border-radius: 20px; }
+    .about-text p { color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      padding: 40px;
+      text-align: center;
+    }
+    footer .footer-logo img { height: 60px; margin-bottom: 16px; opacity: 0.85; }
+    footer p { font-size: 0.88rem; line-height: 1.8; }
+    footer a { color: var(--sky); text-decoration: none; }
+    footer a:hover { color: var(--blush-light); }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 16px 0; }
+    .social-links { display: flex; gap: 14px; justify-content: center; margin: 16px 0; }
+    .social-btn {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .social-btn:hover { background: var(--sage); color: white; }
+
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2rem; }
+      nav { padding: 12px 20px; }
+      section { padding: 40px 20px; }
+      .about-preview-inner { grid-template-columns: 1fr; }
+      .highlights { padding: 30px 20px; }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="logo.png" class="logo" alt="Lee-Bella's Logo">
-  <h1>Lee-Bella's No Place Like Home</h1>
-  <div class="tagline">Where Little Hearts Feel at Home — Day & Night</div>
+  <div class="coming-soon-banner">🌟 Coming Soon — Opening in Gwinnett County, GA 🌟</div>
 
   <nav>
-    <a href="about.html">About</a>
-    <a href="programs.html">Programs</a>
-    <a href="waitlist.html">Join Waitlist</a>
-    <a href="enrollment.html">Enrollment</a>
-    <a href="contact.html">Contact</a>
-    <a href="grants.html">Grant Ready</a>
+    <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Lee-Bella's Logo"/></a></div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="interest.html">Interest Form</a>
+      <a href="support.html">Support Us</a>
+    </div>
   </nav>
-</header>
 
-<div class="hero">
-  <h2>24-Hour Childcare for Working Families</h2>
-  <p>
-    Lee-Bella's No Place Like Home Child Development Center is designed to support
-    working families and essential workers in Gwinnett County with safe, nurturing,
-    dependable childcare day and night.
-  </p>
-  <a class="cta" href="waitlist.html">Join the Founding Families Waitlist</a>
-</div>
+  <section class="hero">
+    <img src="logo.png" alt="Lee-Bella's No Place Like Home CDC" class="hero-logo"/>
+    <h1>No Place Like Home CDC</h1>
+    <p class="tagline">Where Little Hearts Feel at Home — Day &amp; Night</p>
+    <div class="coming-soon-badge">⭐ Coming Soon ⭐</div>
+    <p>Gwinnett County's first true 24-hour Child Development Center — because working families deserve childcare that never closes. Safe, nurturing, and always open.</p>
+    <div class="hero-buttons">
+      <a href="about.html" class="btn btn-primary">Learn More</a>
+      <a href="interest.html" class="btn btn-secondary">Express Interest</a>
+      <a href="support.html" class="btn btn-outline">Support Our Vision</a>
+    </div>
+  </section>
 
-<div class="section">
-  <div class="cards">
-    <div class="card">
-      <h3>Safe & Loving Care</h3>
-      <p>A home-like environment where children feel secure, supported, and cared for.</p>
+  <div class="highlights">
+    <div class="highlight-card">
+      <div class="icon">🌙</div>
+      <h3>24 Hours / 7 Days</h3>
+      <p>Open 365 days a year — no closures, no exceptions. We're here when you need us most.</p>
     </div>
-    <div class="card">
-      <h3>24-Hour Support</h3>
-      <p>Built for parents with overnight, extended, and nontraditional work schedules.</p>
+    <div class="highlight-card">
+      <div class="icon">🏠</div>
+      <h3>Home-Like Environment</h3>
+      <p>A warm, nurturing space where children feel loved, safe, and truly at home.</p>
     </div>
-    <div class="card">
-      <h3>Community Impact</h3>
-      <p>Supporting essential workers, families, and children through accessible care.</p>
+    <div class="highlight-card">
+      <div class="icon">🚐</div>
+      <h3>Transportation Services</h3>
+      <p>Door-to-door pickup and drop-off with GPS-tracked, insured vehicles.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="icon">👩🏽‍💼</div>
+      <h3>Certified Staff</h3>
+      <p>Background-checked, CPR-certified, and trained in early childhood education.</p>
     </div>
   </div>
-</div>
 
-<div class="section">
-  <a class="cta" href="https://www.gofundme.com/f/help-launch-24hour-childcare-for-working-families/fb/o?attribution_id=sl:eccfc18f-09fd-4306-bd01-d74a4b8b7dd8&ts=1780065134&utm_campaign=natman_today_topbar_ios&utm_medium=customer&utm_source=copy_link" target="_blank">Support Our Launch</a>
-</div>
+  <section class="about-preview">
+    <div class="about-preview-inner">
+      <img src="logo.png" alt="Lee-Bella's CDC Logo"/>
+      <div class="about-text">
+        <h2 class="section-title">Our Mission</h2>
+        <p class="section-subtitle">Founded with love, built for working families</p>
+        <p>Lee-Bella's No Place Like Home CDC was born from a simple truth: no parent should ever have to choose between their livelihood and their child's wellbeing.</p>
+        <p>Founded by <strong>Tanika Brown</strong>, a passionate early childhood educator and community advocate, Lee-Bella's is designed specifically for shift workers, healthcare professionals, first responders, and families who need more than a 9-to-5 childcare option.</p>
+        <a href="about.html" class="btn btn-primary" style="margin-top:10px;">Meet Tanika →</a>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  Lee-Bella's No Place Like Home CDC<br>
-  Gwinnett County, Georgia
-</footer>
+  <section style="background: linear-gradient(135deg, #eef7ef, #fdf0f5); text-align:center;">
+    <div class="section-inner">
+      <h2 class="section-title" style="text-align:center;">Help Us Open Our Doors</h2>
+      <p class="section-subtitle" style="text-align:center;">Every contribution brings us closer to serving Gwinnett County families</p>
+      <p style="color:var(--mid); max-width:550px; margin:0 auto 30px; line-height:1.7;">We're currently raising startup funds to license, lease, and equip our center. Your support — big or small — makes a direct difference for the working families of Gwinnett County.</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="https://gofund.me/87e43e796" target="_blank" class="btn btn-secondary">❤️ Donate on GoFundMe</a>
+        <a href="interest.html" class="btn btn-primary">📋 Express Interest</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="logo.png" alt="Logo"/></div>
+    <p><strong style="color:white;">Lee-Bella's No Place Like Home CDC</strong></p>
+    <p>Gwinnett County, Georgia &nbsp;|&nbsp; <em>Coming Soon</em></p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/18onscfdsQ/?mibextid=wwXIfr" target="_blank" class="social-btn">📘 Facebook</a>
+      <a href="https://www.instagram.com/noplacelikehomecdc?igsh=MW8wcjRkdHJhcHQ0aQ%3D%3D&utm_source=qr" target="_blank" class="social-btn">📸 Instagram</a>
+      <a href="https://gofund.me/87e43e796" target="_blank" class="social-btn">❤️ GoFundMe</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="interest.html">Interest Form</a>
+      <a href="support.html">Support Us</a>
+    </div>
+    <p style="margin-top:16px;">📞 <a href="tel:4702875090">(470) 287-5090</a> &nbsp;|&nbsp; ✉️ <a href="mailto:LeeBellas-NPLH@outlook.com">LeeBellas-NPLH@outlook.com</a></p>
+    <p style="margin-top:12px; font-size:0.78rem; opacity:0.5;">© 2026 Lee-Bella's No Place Like Home CDC. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
