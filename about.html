@@ -1,49 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>About | Lee-Bella's CDC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Lee-Bella's No Place Like Home CDC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f6f3ea;color:#4d6470;text-align:center}
-    header,footer{background:#fff;padding:25px}
-    .logo{width:220px;max-width:90%}
-    .content{max-width:900px;margin:auto;padding:50px 20px}
-    nav a{
-      display:inline-block;margin:6px;padding:10px 18px;text-decoration:none;
-      background:#89a98f;color:#fff;border-radius:8px;font-weight:bold
+    :root {
+      --sage: #7A9E7E; --sage-light: #a8c5ac; --dusty-blue: #7BA7BC;
+      --sky: #b0d4e3; --blush: #E8A0B4; --blush-light: #f5c8d8;
+      --sun: #F5C842; --cream: #FDF8F3; --warm-white: #FFFDF9;
+      --dark: #3a3a3a; --mid: #6a6a6a;
     }
-    footer{background:#5f7f8c;color:#fff;margin-top:40px}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--dark); }
+    .coming-soon-banner { background: linear-gradient(90deg, var(--blush), var(--dusty-blue), var(--sage)); color: white; text-align: center; padding: 10px 20px; font-size: 0.95rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    nav { background: var(--warm-white); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 12px; }
+    .nav-logo img { height: 70px; }
+    .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--mid); font-weight: 600; font-size: 0.88rem; padding: 8px 14px; border-radius: 25px; transition: all 0.25s; letter-spacing: 0.5px; text-transform: uppercase; }
+    .nav-links a:hover, .nav-links a.active { background: var(--sage); color: white; }
+    .page-hero { background: linear-gradient(135deg, #eef7ef, #e8f4f8); padding: 60px 40px; text-align: center; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--dusty-blue); margin-bottom: 10px; }
+    .page-hero p { color: var(--mid); font-size: 1.05rem; }
+    section { padding: 60px 40px; }
+    .inner { max-width: 900px; margin: 0 auto; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dusty-blue); margin-bottom: 8px; }
+    .sub { color: var(--blush); font-style: italic; margin-bottom: 24px; }
+    p { color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .bio-card { background: white; border-radius: 20px; padding: 36px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .bio-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--sage); margin-bottom: 4px; }
+    .bio-card .title-label { color: var(--blush); font-weight: 600; font-style: italic; margin-bottom: 20px; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 30px; }
+    .stat-card { background: white; border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 3px 14px rgba(0,0,0,0.06); border-top: 3px solid var(--sage); }
+    .stat-card:nth-child(2) { border-top-color: var(--blush); }
+    .stat-card:nth-child(3) { border-top-color: var(--dusty-blue); }
+    .stat-card .num { font-size: 1.8rem; font-weight: 700; color: var(--sage); }
+    .stat-card:nth-child(2) .num { color: var(--blush); }
+    .stat-card:nth-child(3) .num { color: var(--dusty-blue); }
+    .stat-card p { font-size: 0.85rem; margin: 0; }
+    .mission-box { background: linear-gradient(135deg, var(--sage), var(--dusty-blue)); color: white; border-radius: 20px; padding: 40px; margin: 40px 0; }
+    .mission-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 16px; }
+    .mission-box p { color: rgba(255,255,255,0.9); margin: 0; font-size: 1.05rem; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .value-card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); }
+    .value-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .value-card h4 { color: var(--dark); font-size: 0.95rem; margin-bottom: 6px; }
+    .value-card p { font-size: 0.85rem; margin: 0; }
+    .btn { display: inline-block; padding: 13px 28px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; }
+    .btn-primary { background: var(--sage); color: white; }
+    .btn-primary:hover { background: #5e8562; }
+    footer { background: var(--dark); color: #ccc; padding: 40px; text-align: center; }
+    footer img { height: 60px; margin-bottom: 16px; opacity: 0.85; }
+    footer a { color: var(--sky); text-decoration: none; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 16px 0; }
+    .social-btn { background: rgba(255,255,255,0.1); color: white; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }
+    .social-btn:hover { background: var(--sage); }
+    .social-links { display: flex; gap: 14px; justify-content: center; margin: 16px 0; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } nav { padding: 12px 20px; } section { padding: 40px 20px; } .page-hero h1 { font-size: 2rem; } }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="logo.png" class="logo" alt="Logo">
+  <div class="coming-soon-banner">🌟 Coming Soon — Opening in Gwinnett County, GA 🌟</div>
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="programs.html">Programs</a>
-    <a href="waitlist.html">Waitlist</a>
-    <a href="contact.html">Contact</a>
+    <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Lee-Bella's Logo"/></a></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="interest.html">Interest Form</a>
+      <a href="support.html">Support Us</a>
+    </div>
   </nav>
-</header>
 
-<div class="content">
-  <h1>About Lee-Bella's</h1>
-  <p>
-    Lee-Bella's No Place Like Home Child Development Center is a proposed 24-hour
-    childcare center created to support working families in Gwinnett County.
-  </p>
-  <p>
-    Our mission is to provide a safe, nurturing, dependable environment where children
-    can learn, rest, grow, and feel at home while their parents work.
-  </p>
-  <p>
-    We are especially focused on families with nontraditional schedules, including
-    healthcare workers, first responders, warehouse employees, hospitality staff,
-    and other essential workers.
-  </p>
-</div>
+  <div class="page-hero">
+    <h1>About Lee-Bella's</h1>
+    <p>The heart, the vision, and the woman behind Gwinnett County's first 24-hour CDC</p>
+  </div>
 
-<footer>Lee-Bella's No Place Like Home CDC</footer>
+  <section>
+    <div class="inner">
+      <div class="two-col">
+        <div>
+          <h2>Meet Tanika Brown</h2>
+          <p class="sub">Founder &amp; Director, Lee-Bella's No Place Like Home CDC</p>
+          <p>Tanika Brown is a dedicated early childhood educator, community advocate, and the driving force behind Lee-Bella's No Place Like Home CDC. Based in Suwanee, Georgia, Tanika has spent years working with children, families, and communities — building the expertise and heart needed to create something truly special.</p>
+          <p>Her background spans early childhood education, emergency management with FEMA, customer service leadership, and instructional support. She brings a rare combination of organizational strength, compassionate caregiving, and real-world experience to everything she does.</p>
+          <p>Currently completing her Health Information Management Coding Diploma at Georgia Piedmont Technical College, Tanika continues to invest in her education while building the foundation for Lee-Bella's — a center that reflects everything she believes children and families deserve.</p>
+        </div>
+        <div class="bio-card">
+          <h3>Tanika Brown</h3>
+          <p class="title-label">Founder &amp; Director</p>
+          <p><strong>📍 Location:</strong> Suwanee, GA 30024</p>
+          <p><strong>📞 Phone:</strong> <a href="tel:4702875090">(470) 287-5090</a></p>
+          <p><strong>✉️ Email:</strong> <a href="mailto:LeeBellas-NPLH@outlook.com">LeeBellas-NPLH@outlook.com</a></p>
+          <p><strong>🎓 Education:</strong> Health Information Management Coding (In Progress), Georgia Piedmont Technical College</p>
+          <p><strong>📜 Certifications:</strong> CPR &amp; First Aid Certified, NIMS-700, Basic Life Support</p>
+          <p style="margin-top:20px;"><a href="contact.html" class="btn btn-primary">Get in Touch →</a></p>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num">7+</div><p>Years of experience in leadership, education &amp; customer service</p></div>
+        <div class="stat-card"><div class="num">FEMA</div><p>Emergency management deployments across multiple disaster relief operations</p></div>
+        <div class="stat-card"><div class="num">24/7</div><p>Vision for round-the-clock care — 365 days a year, no exceptions</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: white;">
+    <div class="inner">
+      <h2>About the Center</h2>
+      <p class="sub">Gwinnett County's answer to the childcare gap</p>
+      <p>Lee-Bella's No Place Like Home CDC will be a licensed Child Development Center operating 24 hours a day, 7 days a week, 365 days a year in Gwinnett County, Georgia. We are built specifically for the families who have been left behind by traditional daycare hours.</p>
+
+      <div class="mission-box">
+        <h3>Our Mission</h3>
+        <p>"To provide safe, nurturing, and exceptional childcare to families in Gwinnett County around the clock — so that no parent ever has to choose between their livelihood and their child's wellbeing. At Lee-Bella's, there truly is no place like home."</p>
+      </div>
+
+      <p>Gwinnett County is one of the fastest-growing counties in the United States, with over 950,000 residents — tens of thousands of whom work non-traditional hours. Night-shift nurses, first responders, hotel workers, warehouse staff, and single parents currently have virtually no reliable childcare after 6:00 PM. Lee-Bella's fills that gap with warmth, professionalism, and a genuine commitment to family.</p>
+      <p>The center will begin by leasing a 1,500–2,500 sq ft commercial space, serving 15–25 children with plans to expand. Every aspect — from our flexible enrollment options to our door-to-door transportation service — is designed with the working family in mind.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>Our Core Values</h2>
+      <p class="sub">What guides us in everything we do</p>
+      <div class="values-grid">
+        <div class="value-card"><div class="icon">🏠</div><h4>Home First</h4><p>Every child should feel safe, loved, and at home — no matter the hour.</p></div>
+        <div class="value-card"><div class="icon">🌙</div><h4>Always Available</h4><p>True 24/7 access because working families don't work on a 9-to-5 schedule.</p></div>
+        <div class="value-card"><div class="icon">🤝</div><h4>Family Partnership</h4><p>We work with parents, not just for them — communication is everything.</p></div>
+        <div class="value-card"><div class="icon">📚</div><h4>Learning &amp; Growth</h4><p>Age-appropriate curriculum and enriching activities every single day.</p></div>
+        <div class="value-card"><div class="icon">🛡️</div><h4>Safety Always</h4><p>Background-checked staff, secure facilities, and certified in first aid &amp; CPR.</p></div>
+        <div class="value-card"><div class="icon">💛</div><h4>Community</h4><p>We are rooted in Gwinnett County and committed to lifting our community up.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="logo.png" alt="Logo"/>
+    <p><strong style="color:white;">Lee-Bella's No Place Like Home CDC</strong></p>
+    <p>Gwinnett County, Georgia &nbsp;|&nbsp; <em>Coming Soon</em></p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/18onscfdsQ/?mibextid=wwXIfr" target="_blank" class="social-btn">📘 Facebook</a>
+      <a href="https://www.instagram.com/noplacelikehomecdc?igsh=MW8wcjRkdHJhcHQ0aQ%3D%3D&utm_source=qr" target="_blank" class="social-btn">📸 Instagram</a>
+      <a href="https://gofund.me/87e43e796" target="_blank" class="social-btn">❤️ GoFundMe</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a> <a href="interest.html">Interest Form</a> <a href="support.html">Support Us</a>
+    </div>
+    <p style="margin-top:16px;">📞 <a href="tel:4702875090">(470) 287-5090</a> &nbsp;|&nbsp; ✉️ <a href="mailto:LeeBellas-NPLH@outlook.com">LeeBellas-NPLH@outlook.com</a></p>
+    <p style="margin-top:12px; font-size:0.78rem; opacity:0.5;">© 2026 Lee-Bella's No Place Like Home CDC. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
