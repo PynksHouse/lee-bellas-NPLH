@@ -182,19 +182,51 @@
   </footer>
 
   <script>
-    function submitForm() {
-      const name = document.getElementById('parent-name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
-      if (!name || !phone || !email) {
-        alert('Please fill in your name, phone number, and email address.');
-        return;
-      }
+  function submitForm() {
+  const name = document.getElementById('parent-name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  const city = document.getElementById('city').value.trim();
+  const children = document.getElementById('num-children').value;
+  const ages = document.getElementById('child-ages').value.trim();
+  const schedule = document.getElementById('schedule').value;
+  const occupation = document.getElementById('occupation').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !phone || !email) {
+    alert('Please fill in your name, phone number, and email address.');
+    return;
+  }
+
+  fetch('https://formspree.io/f/mojbgdag', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      parentName: name,
+      phone: phone,
+      email: email,
+      city: city,
+      numberOfChildren: children,
+      childAges: ages,
+      schedule: schedule,
+      occupation: occupation,
+      message: message
+    })
+  })
+  .then(response => {
+    if (response.ok) {
       document.getElementById('theForm').style.display = 'none';
       document.getElementById('successMsg').style.display = 'block';
-      // In production: connect this to a form service like Formspree or Netlify Forms
+    } else {
+      alert('Something went wrong. Please try again.');
     }
-  </script>
-
-</body>
-</html>
+  })
+  .catch(error => {
+    console.error(error);
+    alert('Submission failed. Please try again.');
+  });
+}
