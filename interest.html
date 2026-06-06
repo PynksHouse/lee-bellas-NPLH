@@ -3,238 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lee-Bella's No Place Like Home CDC</title>
+  <title>Interest Form — Lee-Bella's No Place Like Home CDC</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --sage: #7A9E7E;
-      --sage-light: #a8c5ac;
-      --dusty-blue: #7BA7BC;
-      --sky: #b0d4e3;
-      --blush: #E8A0B4;
-      --blush-light: #f5c8d8;
-      --sun: #F5C842;
-      --cream: #FDF8F3;
-      --warm-white: #FFFDF9;
-      --dark: #3a3a3a;
-      --mid: #6a6a6a;
-    }
+    :root { --sage: #7A9E7E; --dusty-blue: #7BA7BC; --sky: #b0d4e3; --blush: #E8A0B4; --sun: #F5C842; --cream: #FDF8F3; --warm-white: #FFFDF9; --dark: #3a3a3a; --mid: #6a6a6a; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--dark); }
-
-    /* COMING SOON BANNER */
-    .coming-soon-banner {
-      background: linear-gradient(90deg, var(--blush), var(--dusty-blue), var(--sage));
-      color: white;
-      text-align: center;
-      padding: 10px 20px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      animation: shimmer 4s infinite;
-    }
-    @keyframes shimmer {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.85; }
-    }
-
-    /* NAV */
-    nav {
-      background: var(--warm-white);
-      padding: 16px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .coming-soon-banner { background: linear-gradient(90deg, var(--blush), var(--dusty-blue), var(--sage)); color: white; text-align: center; padding: 10px 20px; font-size: 0.95rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    nav { background: var(--warm-white); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 12px; }
     .nav-logo img { height: 70px; }
     .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--mid);
-      font-weight: 600;
-      font-size: 0.88rem;
-      padding: 8px 14px;
-      border-radius: 25px;
-      transition: all 0.25s;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+    .nav-links a { text-decoration: none; color: var(--mid); font-weight: 600; font-size: 0.88rem; padding: 8px 14px; border-radius: 25px; transition: all 0.25s; letter-spacing: 0.5px; text-transform: uppercase; }
+    .nav-links a:hover, .nav-links a.active { background: var(--sage); color: white; }
+    .page-hero { background: linear-gradient(135deg, #fdf0f5, #eef7ef); padding: 60px 40px; text-align: center; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--blush); margin-bottom: 10px; }
+    .page-hero p { color: var(--mid); font-size: 1.05rem; max-width: 550px; margin: 0 auto; line-height: 1.7; }
+    .form-section { padding: 60px 40px; }
+    .form-wrap { max-width: 700px; margin: 0 auto; background: white; border-radius: 24px; padding: 44px; box-shadow: 0 6px 30px rgba(0,0,0,0.08); }
+    .form-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--dusty-blue); margin-bottom: 6px; }
+    .form-wrap .sub { color: var(--blush); font-style: italic; margin-bottom: 28px; font-size: 0.95rem; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-weight: 600; font-size: 0.9rem; color: var(--dark); margin-bottom: 6px; }
+    input, select, textarea {
+      width: 100%; padding: 12px 16px; border: 2px solid #e8e8e8; border-radius: 12px;
+      font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--dark);
+      transition: border-color 0.2s; background: var(--cream);
     }
-    .nav-links a:hover, .nav-links a.active {
-      background: var(--sage);
-      color: white;
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--sage); background: white; }
+    textarea { resize: vertical; min-height: 100px; }
+    .two-col-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+    .checkbox-item { display: flex; align-items: center; gap: 10px; }
+    .checkbox-item input[type="checkbox"] { width: auto; }
+    .checkbox-item label { margin: 0; font-weight: 400; font-size: 0.92rem; }
+    .submit-btn {
+      width: 100%; padding: 16px; background: var(--sage); color: white; border: none;
+      border-radius: 50px; font-family: 'Nunito', sans-serif; font-size: 1rem;
+      font-weight: 700; cursor: pointer; transition: background 0.25s; letter-spacing: 0.5px;
+      margin-top: 10px;
     }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(160deg, #e8f4f8 0%, #fdf0f5 50%, #eef7ef 100%);
-      padding: 80px 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '🌙 ✨ ☀️ ⭐ 🌙 ✨ ☀️ ⭐';
-      position: absolute;
-      top: 20px;
-      left: 0;
-      right: 0;
-      font-size: 1.4rem;
-      opacity: 0.15;
-      letter-spacing: 20px;
-    }
-    .hero-logo { width: 220px; margin-bottom: 20px; animation: float 4s ease-in-out infinite; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: var(--dusty-blue);
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-    .hero .tagline {
-      font-style: italic;
-      color: var(--blush);
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--mid);
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.7;
-    }
-    .coming-soon-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--sun), var(--blush));
-      color: white;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 10px 30px;
-      border-radius: 50px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(245,200,66,0.4);
-      margin-bottom: 30px;
-    }
-    .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-block;
-      padding: 13px 28px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: all 0.25s;
-      letter-spacing: 0.5px;
-    }
-    .btn-primary { background: var(--sage); color: white; box-shadow: 0 4px 14px rgba(122,158,126,0.4); }
-    .btn-primary:hover { background: #5e8562; transform: translateY(-2px); }
-    .btn-secondary { background: var(--blush); color: white; box-shadow: 0 4px 14px rgba(232,160,180,0.4); }
-    .btn-secondary:hover { background: #d0748e; transform: translateY(-2px); }
-    .btn-outline { background: transparent; color: var(--dusty-blue); border: 2px solid var(--dusty-blue); }
-    .btn-outline:hover { background: var(--dusty-blue); color: white; transform: translateY(-2px); }
-
-    /* HIGHLIGHTS */
-    .highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 50px 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .highlight-card {
-      background: white;
-      border-radius: 20px;
-      padding: 30px 20px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      transition: transform 0.25s;
-      border-top: 4px solid var(--sage);
-    }
-    .highlight-card:nth-child(2) { border-top-color: var(--blush); }
-    .highlight-card:nth-child(3) { border-top-color: var(--dusty-blue); }
-    .highlight-card:nth-child(4) { border-top-color: var(--sun); }
-    .highlight-card:hover { transform: translateY(-5px); }
-    .highlight-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
-    .highlight-card h3 { color: var(--dark); font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .highlight-card p { color: var(--mid); font-size: 0.88rem; line-height: 1.5; }
-
-    /* SECTION GENERIC */
-    section { padding: 60px 40px; }
-    .section-inner { max-width: 900px; margin: 0 auto; }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--dusty-blue);
-      margin-bottom: 10px;
-    }
-    .section-subtitle {
-      color: var(--blush);
-      font-style: italic;
-      font-size: 1rem;
-      margin-bottom: 30px;
-    }
-
-    /* ABOUT PREVIEW */
-    .about-preview {
-      background: white;
-    }
-    .about-preview-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-    .about-preview-inner img { width: 100%; border-radius: 20px; }
-    .about-text p { color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
-
-    /* FOOTER */
-    footer {
-      background: var(--dark);
-      color: #ccc;
-      padding: 40px;
-      text-align: center;
-    }
-    footer .footer-logo img { height: 60px; margin-bottom: 16px; opacity: 0.85; }
-    footer p { font-size: 0.88rem; line-height: 1.8; }
+    .submit-btn:hover { background: #5e8562; }
+    .success-msg { display: none; text-align: center; padding: 30px; background: #eef7ef; border-radius: 16px; margin-top: 20px; }
+    .success-msg h3 { color: var(--sage); font-size: 1.5rem; margin-bottom: 8px; }
+    .success-msg p { color: var(--mid); }
+    .note { background: var(--cream); border-left: 4px solid var(--blush); border-radius: 0 12px 12px 0; padding: 14px 18px; margin-bottom: 24px; font-size: 0.88rem; color: var(--mid); }
+    footer { background: var(--dark); color: #ccc; padding: 40px; text-align: center; }
+    footer img { height: 60px; margin-bottom: 16px; opacity: 0.85; }
     footer a { color: var(--sky); text-decoration: none; }
-    footer a:hover { color: var(--blush-light); }
     .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 16px 0; }
+    .social-btn { background: rgba(255,255,255,0.1); color: white; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
     .social-links { display: flex; gap: 14px; justify-content: center; margin: 16px 0; }
-    .social-btn {
-      background: rgba(255,255,255,0.1);
-      color: white;
-      text-decoration: none;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .social-btn:hover { background: var(--sage); color: white; }
-
-    @media (max-width: 700px) {
-      .hero h1 { font-size: 2rem; }
-      nav { padding: 12px 20px; }
-      section { padding: 40px 20px; }
-      .about-preview-inner { grid-template-columns: 1fr; }
-      .highlights { padding: 30px 20px; }
-    }
+    @media (max-width: 700px) { nav { padding: 12px 20px; } .form-section { padding: 30px 16px; } .form-wrap { padding: 28px 20px; } .two-col-form { grid-template-columns: 1fr; } .page-hero h1 { font-size: 2rem; } }
   </style>
 </head>
 <body>
@@ -244,83 +63,110 @@
   <nav>
     <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Lee-Bella's Logo"/></a></div>
     <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
-      <a href="interest.html">Interest Form</a>
+      <a href="interest.html" class="active">Interest Form</a>
       <a href="support.html">Support Us</a>
     </div>
   </nav>
 
-  <section class="hero">
-    <img src="logo.png" alt="Lee-Bella's No Place Like Home CDC" class="hero-logo"/>
-    <h1>No Place Like Home CDC</h1>
-    <p class="tagline">Where Little Hearts Feel at Home — Day &amp; Night</p>
-    <div class="coming-soon-badge">⭐ Coming Soon ⭐</div>
-    <p>Gwinnett County's first extended-hours Child Development Center — because working families deserve childcare that goes far beyond the typical 9-to-5. Safe, nurturing, and built around your schedule.</p>
-    <div class="hero-buttons">
-      <a href="about.html" class="btn btn-primary">Learn More</a>
-      <a href="interest.html" class="btn btn-secondary">Express Interest</a>
-      <a href="support.html" class="btn btn-outline">Support Our Vision</a>
-    </div>
-  </section>
+  <div class="page-hero">
+    <h1>📋 Express Your Interest</h1>
+    <p>We're not open yet — but we're building our waitlist! Fill out the form below to be among the first families we reach out to when Lee-Bella's opens its doors.</p>
+  </div>
 
-  <div class="highlights">
-    <div class="highlight-card">
-      <div class="icon">🌙</div>
-      <h3>Extended Hours</h3>
-      <p>Open early mornings, evenings, and overnight — far beyond traditional daycare hours, with safety-based closures for severe weather and major holidays.</p>
-    </div>
-    <div class="highlight-card">
-      <div class="icon">📍</div>
-      <h3>GPS & Surveillance</h3>
-      <p>GPS-tracked vans, classroom cameras, and secure entry — so you always know your child is safe, even on your overnight shift.</p>
-    </div>
-    <div class="highlight-card">
-      <div class="icon">🏠</div>
-      <h3>Home-Like Environment</h3>
-      <p>A warm, nurturing space where children feel loved, safe, and truly at home.</p>
-    </div>
-    <div class="highlight-card">
-      <div class="icon">🚐</div>
-      <h3>Transportation Services</h3>
-      <p>Door-to-door pickup and drop-off with GPS-tracked, insured vehicles.</p>
-    </div>
-    <div class="highlight-card">
-      <div class="icon">👩🏽‍💼</div>
-      <h3>Certified Staff</h3>
-      <p>Background-checked, CPR-certified, and trained in early childhood education.</p>
+  <div class="form-section">
+    <div class="form-wrap">
+      <h2>Family Interest Form</h2>
+      <p class="sub">Where Little Hearts Feel at Home — Day &amp; Night</p>
+      <div class="note">📌 <strong>Note:</strong> This form is for interest only — it does not guarantee enrollment. We will contact you directly once we are open and ready to accept applications.</div>
+
+      <div id="theForm">
+        <div class="two-col-form">
+          <div class="form-group">
+            <label for="parent-name">Parent / Guardian Name *</label>
+            <input type="text" id="parent-name" placeholder="Your full name" required/>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" placeholder="(xxx) xxx-xxxx" required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="your@email.com" required/>
+        </div>
+
+        <div class="two-col-form">
+          <div class="form-group">
+            <label for="city">City / Zip Code</label>
+            <input type="text" id="city" placeholder="e.g. Lawrenceville, 30043"/>
+          </div>
+          <div class="form-group">
+            <label for="num-children">Number of Children</label>
+            <select id="num-children">
+              <option value="">Select...</option>
+              <option>1</option><option>2</option><option>3</option><option>4+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="child-ages">Child Age(s)</label>
+          <input type="text" id="child-ages" placeholder="e.g. 6 months, 2 years, 4 years"/>
+        </div>
+
+        <div class="form-group">
+          <label>Care Type Needed (check all that apply)</label>
+          <div class="checkbox-group">
+            <div class="checkbox-item"><input type="checkbox" id="c1"/><label for="c1">Standard Daytime Care ($250–$350/week)</label></div>
+            <div class="checkbox-item"><input type="checkbox" id="c2"/><label for="c2">Extended 24-Hour Care Plan ($350–$500/week)</label></div>
+            <div class="checkbox-item"><input type="checkbox" id="c3"/><label for="c3">Transportation Add-On ($75–$150/week)</label></div>
+            <div class="checkbox-item"><input type="checkbox" id="c4"/><label for="c4">Drop-In / Hourly Care ($20–$30/hr)</label></div>
+            <div class="checkbox-item"><input type="checkbox" id="c5"/><label for="c5">After-School Care ($125–$200/week)</label></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="schedule">Typical Care Schedule Needed</label>
+          <select id="schedule">
+            <option value="">Select your typical schedule...</option>
+            <option>Daytime (6am – 6pm)</option>
+            <option>Evening / Night (6pm – 6am)</option>
+            <option>Overnight (10pm – 6am)</option>
+            <option>Rotating / Shift Work</option>
+            <option>Varies / Flexible</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="occupation">Your Occupation (optional)</label>
+          <input type="text" id="occupation" placeholder="e.g. Nurse, Delivery Driver, Server..."/>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Anything else you'd like us to know?</label>
+          <textarea id="message" placeholder="Special needs, questions, how you heard about us..."></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">✉️ Submit My Interest</button>
+      </div>
+
+      <div class="success-msg" id="successMsg">
+        <div style="font-size:3rem; margin-bottom:12px;">🏠✨</div>
+        <h3>Thank You!</h3>
+        <p>We've received your interest! You'll be among the first to hear from us when Lee-Bella's No Place Like Home CDC is ready to open. We can't wait to welcome your family.</p>
+        <p style="margin-top:12px; font-size:0.9rem;">Questions in the meantime? Call <strong>(470) 287-5090</strong> or email <strong>LeeBellas-NPLH@outlook.com</strong></p>
+      </div>
     </div>
   </div>
 
-  <section class="about-preview">
-    <div class="about-preview-inner">
-      <img src="logo.png" alt="Lee-Bella's CDC Logo"/>
-      <div class="about-text">
-        <h2 class="section-title">Our Mission</h2>
-        <p class="section-subtitle">Founded with love, built for working families</p>
-        <p>Lee-Bella's No Place Like Home CDC was born from a simple truth: no parent should ever have to choose between their livelihood and their child's wellbeing.</p>
-        <p>Founded by <strong>Tanika Brown</strong>, a passionate early childhood educator and community advocate, Lee-Bella's is designed specifically for shift workers, healthcare professionals, first responders, and families who need more than a 9-to-5 childcare option.</p>
-        <a href="about.html" class="btn btn-primary" style="margin-top:10px;">Meet Tanika →</a>
-      </div>
-    </div>
-  </section>
-
-  <section style="background: linear-gradient(135deg, #eef7ef, #fdf0f5); text-align:center;">
-    <div class="section-inner">
-      <h2 class="section-title" style="text-align:center;">Help Us Open Our Doors</h2>
-      <p class="section-subtitle" style="text-align:center;">Every contribution brings us closer to serving Gwinnett County families</p>
-      <p style="color:var(--mid); max-width:550px; margin:0 auto 30px; line-height:1.7;">We're currently raising startup funds to license, lease, and equip our center. Your support — big or small — makes a direct difference for the working families of Gwinnett County.</p>
-      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-        <a href="https://gofund.me/87e43e796" target="_blank" class="btn btn-secondary">❤️ Donate on GoFundMe</a>
-        <a href="interest.html" class="btn btn-primary">📋 Express Interest</a>
-      </div>
-    </div>
-  </section>
-
   <footer>
-    <div class="footer-logo"><img src="logo.png" alt="Logo"/></div>
+    <img src="logo.png" alt="Logo"/>
     <p><strong style="color:white;">Lee-Bella's No Place Like Home CDC</strong></p>
     <p>Gwinnett County, Georgia &nbsp;|&nbsp; <em>Coming Soon</em></p>
     <div class="social-links">
@@ -329,16 +175,73 @@
       <a href="https://gofund.me/87e43e796" target="_blank" class="social-btn">❤️ GoFundMe</a>
     </div>
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-      <a href="interest.html">Interest Form</a>
-      <a href="support.html">Support Us</a>
+      <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a> <a href="interest.html">Interest Form</a> <a href="support.html">Support Us</a>
     </div>
     <p style="margin-top:16px;">📞 <a href="tel:4702875090">(470) 287-5090</a> &nbsp;|&nbsp; ✉️ <a href="mailto:LeeBellas-NPLH@outlook.com">LeeBellas-NPLH@outlook.com</a></p>
     <p style="margin-top:12px; font-size:0.78rem; opacity:0.5;">© 2026 Lee-Bella's No Place Like Home CDC. All rights reserved.</p>
   </footer>
+
+  <script>
+    async function submitForm() {
+      const name = document.getElementById('parent-name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!name || !phone || !email) {
+        alert('Please fill in your name, phone number, and email address.');
+        return;
+      }
+
+      // Collect care type checkboxes
+      const careTypes = [];
+      if (document.getElementById('c1').checked) careTypes.push('Standard Daytime Care');
+      if (document.getElementById('c2').checked) careTypes.push('Extended 24-Hour Care Plan');
+      if (document.getElementById('c3').checked) careTypes.push('Transportation Add-On');
+      if (document.getElementById('c4').checked) careTypes.push('Drop-In / Hourly Care');
+      if (document.getElementById('c5').checked) careTypes.push('After-School Care');
+
+      const formData = {
+        name,
+        phone,
+        email,
+        city: document.getElementById('city').value,
+        numChildren: document.getElementById('num-children').value,
+        childAges: document.getElementById('child-ages').value,
+        careTypes: careTypes.join(', ') || 'Not specified',
+        schedule: document.getElementById('schedule').value || 'Not specified',
+        occupation: document.getElementById('occupation').value,
+        message: document.getElementById('message').value,
+        _subject: '🏠 New Family Interest Form — Lee-Bella\'s CDC',
+        _replyto: email
+      };
+
+      const btn = document.querySelector('.submit-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('https://formspree.io/f/mojbgdag', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          document.getElementById('theForm').style.display = 'none';
+          document.getElementById('successMsg').style.display = 'block';
+        } else {
+          alert('There was a problem submitting the form. Please email us directly at LeeBellas-NPLH@outlook.com');
+          btn.textContent = '✉️ Submit My Interest';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        alert('There was a problem submitting the form. Please email us directly at LeeBellas-NPLH@outlook.com');
+        btn.textContent = '✉️ Submit My Interest';
+        btn.disabled = false;
+      }
+    }
+  </script>
 
 </body>
 </html>
